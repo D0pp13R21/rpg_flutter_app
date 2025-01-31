@@ -10,7 +10,7 @@ import 'historias.dart';
 
 class MestreHomePage extends StatelessWidget {
   final List<Map<String, dynamic>> opcoesMestre = [
-    {'titulo': 'Fichas', 'pagina': FichasMestrePage()},
+    {'titulo': 'Fichas', 'pagina': FichasPage()},
     {'titulo': 'Como Jogar', 'pagina': ComoJogarPage()},
     {'titulo': 'Dados', 'pagina': DadosPage()},
     {'titulo': 'Bestiário', 'pagina': BestiarioPage()},

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:rpg_flutter_app/data/fichas_data.dart'; // Importando os dados das fichas
-import 'package:rpg_flutter_app/screens/ficha_detalhada.dart'; // Importando a nova tela detalhada
+import '../data/fichas_data.dart';
+import '../data/jogador_data.dart';
+import 'ficha_jogador.dart';
 
-class FichasPage extends StatelessWidget {
+class EscolherFichaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Fichas de Personagens')),
+      appBar: AppBar(title: Text('Escolha sua Ficha')),
       body: ListView.builder(
         itemCount: listaDeFichas.length,
         itemBuilder: (context, index) {
@@ -22,13 +23,22 @@ class FichasPage extends StatelessWidget {
               title: Text(ficha.nome,
                   style: TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Text('${ficha.classe} - ${ficha.raca}'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
+              trailing: Icon(Icons.check),
+              onTap: () async {
+                JogadorFicha novaFicha = JogadorFicha(
+                  nome: ficha.nome,
+                  classe: ficha.classe,
+                  raca: ficha.raca,
+                  imagem: ficha.imagem,
+                  historia: ficha.historia,
+                  atributos: ficha.atributos,
+                );
+
+                await JogadorData.salvarFicha(novaFicha);
+
+                Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => FichaDetalhadaPage(ficha: ficha),
-                  ),
+                  MaterialPageRoute(builder: (context) => FichaJogadorPage()),
                 );
               },
             ),
