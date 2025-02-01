@@ -37,7 +37,7 @@
 ---
 
 ## 📸 **Capturas de Tela (Opcional - caso tenha imagens do app)**  
-📷 *Adicione aqui algumas screenshots do app para ilustrar a experiência!*  
+📷 *Já já, to com preguiça KKKKK*  
 
 ---
 
